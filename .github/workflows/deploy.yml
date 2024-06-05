@@ -1,24 +1,19 @@
-name: "Terraform"
-
+name: Upload Website
+ 
 on:
   push:
     branches:
-      - main
-
+    - main
+ 
 jobs:
-  terraform:
-    name: "Terraform"
+  deploy:
     runs-on: ubuntu-latest
-    env:
-      region: "ap-south-1"
-      AWS_S3_BUCKET: "myterraformbucketss"
-      AWS_ACCESS_KEY_ID: "AKIASI6K7KRQG7LM4PZE"
-      AWS_SECRET_ACCESS_KEY: "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"
-      
-      defaults:
-      run:
-        working-directory: Newfolder
-
-      steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+      env:
+        AWS_S3_BUCKET: "firstbucket"
+        AWS_ACCESS_KEY_ID: AKIA3FLDXKK77XDWH5HT
+        AWS_SECRET_ACCESS_KEY: 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
