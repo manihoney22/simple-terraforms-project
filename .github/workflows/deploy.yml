@@ -10,19 +10,17 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: "AKIASI6K7KRQG7LM4PZE"
-      AWS_SECRET_ACCESS_KEY: "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"
-    defaults:
-      run:
+    
+run:
         working-directory: Newfolder/index.html
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        steps:
+                
+       - name: Checkout
+         uses: actions/checkout@v2
 
       - name: Terraform Init
-        id: init
-        run: terraform init
+                  id: init
+                  run: terraform init
 
       - name: Terraform Plan
         id: plan
