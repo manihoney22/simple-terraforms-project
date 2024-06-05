@@ -14,6 +14,10 @@ jobs:
       AWS_S3_BUCKET: "mybucket"
       AWS_ACCESS_KEY_ID: "AKIASI6K7KRQG7LM4PZE"
       AWS_SECRET_ACCESS_KEY: "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"
+      
+      defaults:
+      run:
+        working-directory: Newfolder
 
       steps:
       - name: Checkout
