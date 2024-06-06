@@ -11,9 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
-      with:
-        args: aws s3 cp ./index.html s3://my-bucket-names/index.html --acl bucket-owner-full-control
-aws s3 cp ./README.md s3://my-bucket-names/README.md --acl bucket-owner-full-control
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
